@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj": {}
+    "c:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj": {
+    "c:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj",
+        "projectUniqueName": "c:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj",
         "projectName": "Play.Inventory.Service",
-        "projectPath": "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj",
+        "projectPath": "c:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj",
         "packagesPath": "C:\\Users\\13218\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\obj\\",
+        "outputPath": "c:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\13218\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -51,7 +51,7 @@
             },
             "Play.Common": {
               "target": "Package",
-              "version": "[1.0.1, )"
+              "version": "[1.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
