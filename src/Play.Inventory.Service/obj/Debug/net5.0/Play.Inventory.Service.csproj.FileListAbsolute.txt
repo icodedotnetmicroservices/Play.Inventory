@@ -58,3 +58,16 @@ C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Microsoft
 C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Polly.dll
 C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Polly.Extensions.Http.dll
 C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Automatonymous.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\GreenPipes.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\MassTransit.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\MassTransit.AspNetCoreIntegration.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\MassTransit.RabbitMqTransport.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\NewId.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Play.Catalog.Contracts.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\RabbitMQ.Client.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\System.Text.Json.dll

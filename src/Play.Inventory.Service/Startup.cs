@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Play.Common.MassTransit;
 using Play.Common.MongoDB;
 using Play.Inventory.Service.Clients;
 using Play.Inventory.Service.Entities;
@@ -30,42 +31,13 @@ namespace Play.Inventory.Service
         {
 
             services.AddMongo()
-                    .AddMongoRepository<InventoryItem>("inventoryitems");
-            
-            Random jitterer = new Random();
+                    .AddMongoRepository<InventoryItem>("inventoryitems")
+                    .AddMongoRepository<CatalogItem>("catalogitems")
+                    .AddMassTransitWithRabbitMQ();
 
-            services.AddHttpClient<CatalogClient>(client =>
-            {
-                client.BaseAddress = new Uri("https://localhost:5001");
-            })
-            .AddTransientHttpErrorPolicy(builder => builder.Or<TimeoutRejectedException>().WaitAndRetryAsync(
-                5,
-                retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
-                                + TimeSpan.FromMilliseconds(jitterer.Next(0, 1000)),
-                onRetry: (outcome, timespan, retryAttempt) =>
-                {
-                    var serviceProvider = services.BuildServiceProvider();
-                    serviceProvider.GetService<ILogger<CatalogClient>>()?
-                    .LogWarning("Delaying for {0} second, then making retry {1}", timespan.TotalSeconds, retryAttempt);
-                }
-            ))
-            .AddTransientHttpErrorPolicy(builder => builder.Or<TimeoutRejectedException>().CircuitBreakerAsync(
-                3,
-                TimeSpan.FromSeconds(15),
-                onBreak: (outcome, timespan) => 
-                {
-                    var serviceProvider = services.BuildServiceProvider();
-                    serviceProvider.GetService<ILogger<CatalogClient>>()?
-                    .LogWarning("Opening the circuit for {0} seconds...", timespan.TotalSeconds);
-                }, 
-                onReset: () => {
-                    var serviceProvider = services.BuildServiceProvider();
-                    serviceProvider.GetService<ILogger<CatalogClient>>()?
-                    .LogWarning("Closing the circuit...");
-                }
-            ))
-            .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(1));
 
+
+            AddCatalogClient(services);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -73,6 +45,7 @@ namespace Play.Inventory.Service
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Play.Inventory.Service", Version = "v1" });
             });
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -94,6 +67,43 @@ namespace Play.Inventory.Service
             {
                 endpoints.MapControllers();
             });
+        }
+        private static void AddCatalogClient(IServiceCollection services)
+        {
+            Random jitterer = new Random();
+
+            services.AddHttpClient<CatalogClient>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:5001");
+            })
+            .AddTransientHttpErrorPolicy(builder => builder.Or<TimeoutRejectedException>().WaitAndRetryAsync(
+                5,
+                retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
+                                + TimeSpan.FromMilliseconds(jitterer.Next(0, 1000)),
+                onRetry: (outcome, timespan, retryAttempt) =>
+                {
+                    var serviceProvider = services.BuildServiceProvider();
+                    serviceProvider.GetService<ILogger<CatalogClient>>()?
+                    .LogWarning("Delaying for {0} second, then making retry {1}", timespan.TotalSeconds, retryAttempt);
+                }
+            ))
+            .AddTransientHttpErrorPolicy(builder => builder.Or<TimeoutRejectedException>().CircuitBreakerAsync(
+                3,
+                TimeSpan.FromSeconds(15),
+                onBreak: (outcome, timespan) =>
+                {
+                    var serviceProvider = services.BuildServiceProvider();
+                    serviceProvider.GetService<ILogger<CatalogClient>>()?
+                    .LogWarning("Opening the circuit for {0} seconds...", timespan.TotalSeconds);
+                },
+                onReset: () =>
+                {
+                    var serviceProvider = services.BuildServiceProvider();
+                    serviceProvider.GetService<ILogger<CatalogClient>>()?
+                    .LogWarning("Closing the circuit...");
+                }
+            ))
+            .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(1));
         }
     }
 }
