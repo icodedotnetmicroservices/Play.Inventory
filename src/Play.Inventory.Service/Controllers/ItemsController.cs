@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Play.Common;
-using Play.Inventory.Service.Clients;
 using Play.Inventory.Service.Dtos;
 using Play.Inventory.Service.Entities;
 
