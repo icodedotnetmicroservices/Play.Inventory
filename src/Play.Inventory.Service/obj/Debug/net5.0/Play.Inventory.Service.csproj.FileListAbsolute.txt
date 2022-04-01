@@ -71,3 +71,10 @@ C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Newtonsof
 C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Play.Catalog.Contracts.dll
 C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\RabbitMQ.Client.dll
 C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\System.Text.Json.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Projects\Play.Inventory\src\Play.Inventory.Service\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
