@@ -603,7 +603,7 @@
           "lib/net5.0/Play.Catalog.Contracts.dll": {}
         }
       },
-      "Play.Common/1.0.3": {
+      "Play.Common/1.0.4": {
         "type": "package",
         "dependencies": {
           "MassTransit.AspNetCore": "7.3.1",
@@ -872,6 +872,16 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
+        }
+      },
+      "Play.Inventory.Contracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Play.Inventory.Contracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Play.Inventory.Contracts.dll": {}
         }
       }
     }
@@ -1814,14 +1824,14 @@
         "play.catalog.contracts.nuspec"
       ]
     },
-    "Play.Common/1.0.3": {
-      "sha512": "yyCcJyEIO/95fBk3AaNf9SLZWrwqn4FK11X5o7SAVh0XHR+PSngK9ZwyxcwCBxxrZd0ZlsU2yuAJxJwWH+JHNw==",
+    "Play.Common/1.0.4": {
+      "sha512": "Ef1uDifmTQ9z+rrFFL5TS9x6N9PSChOWyB3BDEoYg/mlTSiHI4GrIJwTV1FlaUSgcF0zskuEQSZ0Mf3lAkTZog==",
       "type": "package",
-      "path": "play.common/1.0.3",
+      "path": "play.common/1.0.4",
       "files": [
         ".nupkg.metadata",
         "lib/net5.0/Play.Common.dll",
-        "play.common.1.0.3.nupkg.sha512",
+        "play.common.1.0.4.nupkg.sha512",
         "play.common.nuspec"
       ]
     },
@@ -2448,13 +2458,19 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Play.Inventory.Contracts/1.0.0": {
+      "type": "project",
+      "path": "../Play.Inventory.Contracts/Play.Inventory.Contracts.csproj",
+      "msbuildProject": "../Play.Inventory.Contracts/Play.Inventory.Contracts.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Microsoft.Extensions.Http.Polly >= 6.0.3",
       "Play.Catalog.Contracts >= 1.0.0",
-      "Play.Common >= 1.0.3",
+      "Play.Common >= 1.0.4",
+      "Play.Inventory.Contracts >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -2464,11 +2480,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj",
+      "projectUniqueName": "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj",
       "projectName": "Play.Inventory.Service",
-      "projectPath": "c:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj",
+      "projectPath": "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\Play.Inventory.Service.csproj",
       "packagesPath": "C:\\Users\\13218\\.nuget\\packages\\",
-      "outputPath": "c:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\obj\\",
+      "outputPath": "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Service\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\13218\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2485,7 +2501,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Contracts\\Play.Inventory.Contracts.csproj": {
+              "projectPath": "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Contracts\\Play.Inventory.Contracts.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -2508,7 +2528,7 @@
           },
           "Play.Common": {
             "target": "Package",
-            "version": "[1.0.3, )"
+            "version": "[1.0.4, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
