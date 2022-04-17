@@ -8,9 +8,9 @@ using Play.Inventory.Service.Exceptions;
 
 namespace Play.Inventory.Service.Consumers
 {
+
     public class GrantItemsConsumer : IConsumer<GrantItems>
     {
-
         private readonly IRepository<InventoryItem> inventoryItemsRepository;
         private readonly IRepository<CatalogItem> catalogItemsRepository;
 
@@ -46,11 +46,19 @@ namespace Play.Inventory.Service.Consumers
 
                 };
 
+                inventoryItem.MessageIds.Add(context.MessageId.Value);
+
                 await inventoryItemsRepository.CreateAsync(inventoryItem);
             }
             else
             {
+                if (inventoryItem.MessageIds.Contains(context.MessageId.Value))
+                {
+                    await context.Publish(new InventoryItemsGranted(message.CorrelationId));
+                    return;
+                }
                 inventoryItem.Quantity += message.Quantity;
+                inventoryItem.MessageIds.Add(context.MessageId.Value);
                 await inventoryItemsRepository.UpdateAsync(inventoryItem);
             }
 
