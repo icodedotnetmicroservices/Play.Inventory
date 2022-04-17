@@ -11,7 +11,7 @@
     "C:\\Users\\13218\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "C:\\Projects\\Play.Inventory\\src\\Play.Inventory.Contracts\\Play.Inventory.Contracts.csproj",
       "projectName": "Play.Inventory.Contracts",

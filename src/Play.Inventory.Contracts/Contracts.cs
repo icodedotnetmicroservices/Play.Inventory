@@ -15,5 +15,12 @@ namespace Play.Inventory.Contracts
        int Quantity,
        Guid CorrelationId);
     public record InventoryItemsSubstracted(Guid CorrelationId);
+
+    public record InventoryItemUpdated(
+        Guid UserId,
+        Guid CatalogItemId,
+        int NewTotalQuantity
+
+    );
 }
 
