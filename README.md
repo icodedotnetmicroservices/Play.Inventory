@@ -1,3 +1,3 @@
-# Play.Identity
+# Play.Inventory
 
-Identity uses by Play Economy services.
+Play Economy Inventory microservice.
