@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+     <PackageDescription>Play Economy Inventory microservice.</PackageDescription>
+    <Authors>Ariste Jean</Authors>
+    <Company>.NET Microservices</Company>
   </PropertyGroup>
 
 </Project>
