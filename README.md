@@ -3,7 +3,7 @@
 Play Economy Inventory microservice.
 
 ```powershell
-$version="1.0.3"
+$version="1.0.4"
 $owner="icodedotnetmicroservices"
 $gh_pat="[PAT HERE]"
 
