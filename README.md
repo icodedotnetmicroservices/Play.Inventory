@@ -35,3 +35,24 @@ docker run -it --rm -p 5004:5004 --name inventory -e MongoDbSettings__Connection
 az acr login --name $containerregisteryname
 docker push "$containerregisteryname.azurecr.io/play.inventory:$version"
 ```
+
+## Creating The Pod Managed Identity
+
+```powershell
+$appname = "playeconomy"
+$aksclustername = "aksclusterplayeconomy"
+$namespace="inventory"
+az identity create --resource-group $appname --name $namespace
+$IDENTITY_RESOURCE_ID=az identity show -g $appname -n $namespace --query id -otsv
+
+az aks pod-identity add --resource-group $appname --cluster-name $aksclustername --namespace $namespace --name $namespace --identity-resource-id $IDENTITY_RESOURCE_ID
+```
+
+## Granting access to Key Vault Secrets
+
+```powershell
+$azurekeyvaultname = "azkeyvaultplayeconomy"
+$IDENTITY_CLIENT_ID=az identity show -g $appname -n $namespace --query clientId -otsv
+az keyvault set-policy -n $azurekeyvaultname --secret-permissions  get list --spn $IDENTITY_CLIENT_ID
+
+```
