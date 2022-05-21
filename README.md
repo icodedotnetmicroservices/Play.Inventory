@@ -70,3 +70,7 @@ $chartVersion="0.1.0"
 $env:HEML_EXPERIMENTAL_OCI=1
 helm registry login "acr$appname.azurecr.io" --username $helmUser --password $helmPassword
 helm upgrade inventory-service oci://acr$appname.azurecr.io/helm/microservice --version $chartVersion -f .\helm\values.yaml -n $namespace --install
+```
+
+## Required repository secrets for Github workflow
+GH_PAT: Created in Github user profile --> Settings -- Developer Settings --> Personal Access Token
